@@ -62,7 +62,7 @@ export default {
   },
   methods:{
     post:function(){
-      this.$http.post("http://jsonplaceholder.typicode.com/posts",{
+      this.$http.post('/api/blog/addBlog',{
         title:this.blog.title,
         body:this.blog.content,
         userId:1
