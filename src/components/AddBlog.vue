@@ -63,9 +63,7 @@ export default {
   methods:{
     post:function(){
       this.$http.post('/api/blog/addBlog',{
-        title:this.blog.title,
-        body:this.blog.content,
-        userId:1
+        title:this.blog.title
       })
       .then(function(data){
         console.log(data);
