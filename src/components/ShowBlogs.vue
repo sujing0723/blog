@@ -24,9 +24,10 @@ export default {
     }
   },
   created() {
-    this.$http.get('./../static/posts.json')
+    this.$http.get('/api/blog/showBlogs')
     .then(function(data){
       // console.log(data)
+      console.log("1");
       this.blogs = data.body.slice(0,10);
       console.log(this.blogs)
     })

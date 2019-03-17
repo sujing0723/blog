@@ -62,8 +62,12 @@ export default {
   },
   methods:{
     post:function(){
+
       this.$http.post('/api/blog/addBlog',{
-        title:this.blog.title
+        title:this.blog.title,
+        content:this.blog.content,
+        categories:this.blog.categories,
+        author:this.blog.author
       })
       .then(function(data){
         console.log(data);

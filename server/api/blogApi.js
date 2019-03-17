@@ -19,12 +19,19 @@ var jsonWrite = function (res, ret) {
   }
 }
 
-// 增加博客接口
+// 增加博客
 router.post('/addBlog', (req, res) => {
   var params = req.body;
+  var categoriesParam = '';
+  var categories = params.categories;
+  for(var i = 0; i<categories.length; i++){
+    if(categories[i] != null){
+      categoriesParam =  categories[i] + ","+categoriesParam
+    }
+  }
   console.log(params)
   var sql = $sql.blog.add;
-  conn.query(sql, [params.title], function (err, result) {
+  conn.query(sql, [params.title,params.content,categoriesParam,params.author],function (err, result) {
     if (err) {
       console.log(err)
     }
@@ -34,4 +41,17 @@ router.post('/addBlog', (req, res) => {
   })
 })
 
+//查询博客
+router.get('/showBlogs', (req, res) => {
+  var sql = $sql.blog.show
+  conn.query(sql, function (err, result) {
+    if (err) {
+      console.log(err)
+    }
+    if (result) {
+      console.log(result)
+      res.send(result)
+    }
+  })
+})
 module.exports = router
