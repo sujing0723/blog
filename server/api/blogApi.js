@@ -41,7 +41,7 @@ router.post('/addBlog', (req, res) => {
   })
 })
 
-//查询博客
+//展示博客
 router.get('/showBlogs', (req, res) => {
   var sql = $sql.blog.show
   conn.query(sql, function (err, result) {
@@ -54,4 +54,21 @@ router.get('/showBlogs', (req, res) => {
     }
   })
 })
+
+//展示博客详细信息
+router.get('/queryBlog', (req, res) => {
+  var sql = $sql.blog.query
+  var params = req.query
+  console.log(params)
+  conn.query(sql, [params.id], function (err, result) {
+    if (err) {
+      console.log(err)
+    }
+    if (result) {
+      console.log(result)
+      res.send(result)
+    }
+  })
+})
+
 module.exports = router
