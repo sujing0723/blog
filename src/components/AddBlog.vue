@@ -31,7 +31,7 @@
 
     <div id="preview">
       <h3>博客总览</h3>
-      <p>博客内容：{{blog.title}}</p>
+      <p>博客标题：{{blog.title}}</p>
       <h3>博客内容：</h3>
       <p>{{blog.content}}</p>
       <p>博客分类：</p>

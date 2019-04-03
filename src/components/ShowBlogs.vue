@@ -8,10 +8,10 @@
         <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
       </router-link>
       <article>{{blog.body | snippet}}</article>
+      <button type="text" class="delete" @click="deleteBlog(blog.id)">删除</button>
     </div>
   </div>
 </template>
-
 <script>
 
 
@@ -53,6 +53,14 @@ export default {
         el.style.color = "#" + Math.random().toString(16).slice(2,8)
       }
     }
+  },
+  methods: {
+    deleteBlog(blogid){
+    this.$http.post('/api/blog/deleteBlog')
+      .then(function(data){
+        this.blogs.splice(index,1)
+      })
+    }
   }
 }
 </script>
@@ -77,5 +85,8 @@ input[type="text"] {
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
+}
+.delete {
+  margin-left: 87%
 }
 </style>

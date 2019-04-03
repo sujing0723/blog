@@ -1,19 +1,18 @@
 <template>
   <div id="single-blog">
-    <h1>{{blog.title}}</h1>
-    <h1>{{blog.category}}</h1>
-    <h1>{{blog.author}}</h1>
-    <article>{{blog.body}}</article>
-
+    <h3>博客标题：{{blog.title}}</h3>
+    <h3>博客内容：{{blog.body}}</h3>
+    <h3>博客分类：{{blog.category}}</h3>
+    <h3>博客作者：{{blog.author}}</h3>
   </div>
 </template>
 <script>
 export default {
   name:"single-blog",
   data(){
-    return{   
+    return{
       id:this.$route.params.id,
-      blog:{}
+      blog:[]
     }
   },
   created(){
@@ -32,5 +31,8 @@ export default {
   padding: 20px;
   background: #eee;
   border:1px dotted #aaa;
+}
+h3 {
+  margin-top: 10px;
 }
 </style>
