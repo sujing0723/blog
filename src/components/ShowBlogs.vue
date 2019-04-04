@@ -56,10 +56,16 @@ export default {
   },
   methods: {
     deleteBlog(blogid){
-    this.$http.post('/api/blog/deleteBlog')
-      .then(function(data){
-        this.blogs.splice(index,1)
-      })
+    console.log(blogid);
+    this.$http.post('/api/blog/deleteBlog?id='+blogid)
+      .then(
+
+  this.$http.get('/api/blog/showBlogs')
+    .then(function(data){
+      this.blogs = data.body.slice(0,10);
+    })
+
+      )
     }
   }
 }

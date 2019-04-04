@@ -74,7 +74,7 @@ router.get('/queryBlog', (req, res) => {
 //删除博客
 router.post('/deleteBlog', (req, res) => {
   var sql = $sql.blog.delete
-  var params = req.body
+  var params = req.query
   console.log(params)
   conn.query(sql, [params.id], function (err, result) {
     if (err) {
