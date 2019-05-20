@@ -16,7 +16,7 @@ export default {
     }
   },
   created(){
-    this.$http.get('/api/blog/queryBlog?id='+this.id)
+    this.$http.get('/api/blog/queryBlog?id=' + this.id)
     .then(function(data){
       this.blog = data.body[0]
       console.log(this.blog)

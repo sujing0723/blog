@@ -12,6 +12,7 @@
     </div>
   </div>
 </template>
+
 <script>
 
 
@@ -56,15 +57,11 @@ export default {
   },
   methods: {
     deleteBlog(blogid){
-    console.log(blogid);
-    this.$http.post('/api/blog/deleteBlog?id='+blogid)
-      .then(
-
-  this.$http.get('/api/blog/showBlogs')
-    .then(function(data){
-      this.blogs = data.body.slice(0,10);
-    })
-
+    this.$http.post('/api/blog/deleteBlog?id='+ blogid)
+      .then(this.$http.get('/api/blog/showBlogs')
+      .then(function(data){
+        this.blogs = data.body.slice(0,10);
+      })
       )
     }
   }

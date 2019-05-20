@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/" exact>博客</router-link>
+        <router-link to="/show" exact>博客</router-link>
         <router-link to="/add" exact6>写博客</router-link>
       </li>
     </ul>

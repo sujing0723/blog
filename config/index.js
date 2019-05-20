@@ -26,7 +26,11 @@ module.exports = {
       pathRewrite: {
           '^/api': ''
       }
-  }}, // 需要 proxyTable 代理的接口（可跨域）
+  }},
+  devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true
+}, // 需要 proxyTable 代理的接口（可跨域）
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

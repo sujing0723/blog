@@ -1,10 +1,11 @@
-import ShowBlogs from './components/ShowBlogs.vue'
+import Login from './views/Login.vue'
 import AddBlog from './components/AddBlog.vue'
 import SingleBlog from './components/SingleBlog.vue'
+import ShowBlogs from './components/ShowBlogs.vue'
 export default[
   {
     path:"/",
-    component:ShowBlogs
+    component:Login
   },
   {
     path:"/add",
@@ -13,5 +14,9 @@ export default[
   {
     path:"/blog/:id",
     component:SingleBlog
+  },
+  {
+    path:"/show",
+    component:ShowBlogs
   }
 ]

@@ -1,4 +1,5 @@
 const blogApi = require('./api/blogApi')
+const userApi = require('./api/userApi')
 const fs = require('fs')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({
 
 // 后端api路由
 app.use('/api/blog', blogApi)
+app.use('/api/user', userApi)
 
 // 监听端口
 app.listen(3000);
